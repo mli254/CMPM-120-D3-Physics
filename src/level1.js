@@ -14,17 +14,13 @@ class Level1 extends Phaser.Scene {
         super('level1');
     }
 
-    preload()
-    {
-        this.load.image('restart', './assets/restart.png');
-        this.load.image('arrow', './assets/curlyarrow.png');
-        this.load.image('play', './assets/playbutton.png');
-        this.load.image('star', './assets/star.png');
-        this.load.image('circle', './assets/circle.png');
-    }
-
     create()
     {
+        // resetting globals
+        stars = 0;
+        resultStart = false;
+
+        // setting the world bounds
         this.matter.world.setBounds(0, 0, w, h, 32, true, true, false, true);
 
         let restartTextOn = false;
@@ -144,11 +140,44 @@ class Level1 extends Phaser.Scene {
 
         let star = this.matter.add.image(800, 600, 'star').setStatic(true).setScale(0.1);
         star.setOnCollide(this.handleStarCollision);
+
+        // if (stars==1) {
+        //     console.log("entered function!")
+        //     this.resultScreen();
+        // }
+    }
+
+    update() 
+    {
+        if (stars==1 && resultStart==false) {
+            //stars--;
+            resultStart=true;
+            let resultScreen = this.add.rectangle(w*0.5, h*0.5, 500, 500, 0xffffff)
+            .setOrigin(0.5)
+            .setAlpha(0);
+
+            this.add.tween({
+                targets: resultScreen,
+                alpha: {from: 0, to: 1},
+                duration: 1000
+            });
+            //this.resultScreen();
+        }
     }
 
     handleStarCollision(data) {
         const {bodyA, bodyB} = data;   
         const goA = bodyA.gameObject; 
         goA.destroy(true);
+        stars+=1;
+        console.log(stars);
+    }
+
+    resultScreen() {
+        this.add.tween({
+            targets: this.logo,
+            alpha: {from: 0, to: 1},
+            duration: 1000
+        });
     }
 }
