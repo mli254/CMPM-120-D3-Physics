@@ -15,10 +15,10 @@ const config = {
                 y: 0.8
             },
             enableSleep: true,
-            debug: true
+            debug: false
         }
     },
-    scene: [Title, Level1, Loading1]
+    scene: [Title, Level3, Loading3]
 };
 
 const game = new Phaser.Game(config);

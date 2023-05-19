@@ -1,17 +1,17 @@
-class Loading1 extends Phaser.Scene {
+class Loading3 extends Phaser.Scene {
     constructor() {
-        super('loading1');
+        super('loading3');
     }
 
     create()
     {
-        this.scene.start('level1');
+        this.scene.start('level3');
     }
 }
 
-class Level1 extends Phaser.Scene {
+class Level3 extends Phaser.Scene {
     constructor() {
-        super('level1');
+        super('level3');
     }
 
     create()
@@ -41,7 +41,7 @@ class Level1 extends Phaser.Scene {
                 }
             })
             .on('pointerdown', () => {
-                this.scene.start('loading1');
+                this.scene.start('loading3');
             });
 
         const lineCategory = this.matter.world.nextCategory();
@@ -134,7 +134,7 @@ class Level1 extends Phaser.Scene {
                 ball.setStatic(false)
                     .setCircle()
                     .setFriction(0.005)
-                    .setBounce(0.1);
+                    .setBounce(2);
             });
 
         let star = this.matter.add.image(1400, 600, 'star').setStatic(true).setScale(0.1);
@@ -162,6 +162,12 @@ class Level1 extends Phaser.Scene {
         const goA = bodyA.gameObject; 
         goA.destroy(true);
         stars+=1;
-        console.log(stars);
+    }
+
+    handleBallCollision(data) {
+        console.log("entered function");
+        const {bodyA, bodyB} = data;
+        const goA = bodyA.gameObject;
+        goA.setBounce(0.8);
     }
 }
