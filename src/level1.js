@@ -125,6 +125,7 @@ class Level1 extends Phaser.Scene {
 
         // creates the menu in the top-left corner, which includes the play button
         let menu = this.add.container(200, h*0.5-300);
+        let menuOutline = this.add.rectangle(0, 0, 305, 405, 0xffffff).setOrigin(0.5);
         let menuBox = this.add.rectangle(0, 0, 300, 400, 0x000000).setOrigin(0.5);
         let menuText = this.add.text(0, -100)
             .setOrigin(0.5)
@@ -162,6 +163,7 @@ class Level1 extends Phaser.Scene {
             });
 
         // add menu components to the menu container
+        menu.add(menuOutline);
         menu.add(menuBox);
         menu.add(menuText);
         menu.add(menuStar);

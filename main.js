@@ -28,4 +28,6 @@ let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
 let stars = 0;
+let starsOne = false;
+let starsTwo = false;
 let resultStart = false;

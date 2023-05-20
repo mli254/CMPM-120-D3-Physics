@@ -41,10 +41,10 @@ class Title extends Phaser.Scene {
         })
 
         this.time.delayedCall(4000, () => {
-            this.titleText = this.add.text(w*0.5, h*0.25)
+            this.titleText = this.add.text(w*0.5, h*0.65)
                 .setOrigin(0.5)
                 .setText("Wahoo!")
-                .setStyle({ fontSize: `60px`, fontFamily: 'Indie Flower', color: '#ffffff' })
+                .setStyle({ fontSize: `172px`, fontFamily: 'Indie Flower', color: '#ffffff' })
                 .setAlpha(0);
 
             this.add.tween({
@@ -57,7 +57,7 @@ class Title extends Phaser.Scene {
         
 
         this.time.delayedCall(5000, () => {
-            this.startText = this.add.text(w*0.5, h*0.5+100, "Click to move to the next scene.")
+            this.startText = this.add.text(w*0.5, h*0.65+100, "Click to move to the next scene.")
                 .setOrigin(0.5)    
                 .setStyle({ fontSize: `24px`, fontFamily: 'Indie Flower', color: '#ffffff' })
                 .setAlpha(0);
