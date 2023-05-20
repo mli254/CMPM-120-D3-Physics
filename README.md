@@ -1,6 +1,6 @@
 # CMPM-120-D3-Physics
 Repository for Demo 3 for CMPM 120: Physics-based Game.
-Play the game at [this link]().
+Play the game at [this link](https://mli254.github.io/CMPM-120-D3-Physics/).
 
 ### Gameplay/Experience Requirements
 - **The game uses both continuous and discrete inputs from the player**
