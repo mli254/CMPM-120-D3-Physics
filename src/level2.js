@@ -1,17 +1,17 @@
-class Loading1 extends Phaser.Scene {
+class Loading2 extends Phaser.Scene {
     constructor() {
-        super('loading1');
+        super('loading2');
     }
 
     create()
     {
-        this.scene.start('level1');
+        this.scene.start('level2');
     }
 }
 
-class Level1 extends Phaser.Scene {
+class Level2 extends Phaser.Scene {
     constructor() {
-        super('level1');
+        super('level2');
     }
 
     create()
@@ -44,7 +44,7 @@ class Level1 extends Phaser.Scene {
                 }
             })
             .on('pointerdown', () => {
-                this.scene.start('loading1');
+                this.scene.start('loading2');
             });
 
         // draws the line when the player holds and drags the mouse cursor across the screen
@@ -206,7 +206,7 @@ class Level1 extends Phaser.Scene {
             let resultRestart = this.add.image(0, 300, 'restart').setOrigin(0.5).setScale(0.5)
                 .setInteractive()
                 .on('pointerdown', () => {
-                    this.scene.start('loading1');
+                    this.scene.start('loading2');
                 });
             let scoreIcon = this.add.image(0, -50, 'star').setOrigin(0.5).setScale(0.2);
 
@@ -228,7 +228,7 @@ class Level1 extends Phaser.Scene {
                     }
                 })
                 .on('pointerdown', () => {
-                    this.scene.start('level2')
+                    this.scene.start('level3')
                 });
             
             // add result screen components to the container

@@ -75,7 +75,7 @@ class Title extends Phaser.Scene {
             {
                 this.cameras.main.fadeOut(1000, 0,0,0);
                 this.time.delayedCall(1001, () => {
-                    this.scene.start('level3');
+                    this.scene.start('level1');
                 })
             }, this);
         })
