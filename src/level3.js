@@ -25,7 +25,7 @@ class Level3 extends Phaser.Scene {
         // setting the world bounds; omits the left side, where the menu is
         this.matter.world.setBounds(300, 0, w-300, h, 32, true, true, false, true);
 
-        this.add.rectangle(0, 0, w, h*0.75, 0x303030).setOrigin(0,0);
+        this.add.image(0, 0, 'bg').setOrigin(0,0);
 
         // creates "restart" button in the top-right corner
         let restartTextOn = false;
@@ -136,16 +136,16 @@ class Level3 extends Phaser.Scene {
         let menuText = this.add.text(0, -100)
             .setOrigin(0.5)
             .setText("Score:")
-            .setStyle({ fontSize: `24px`, fontFamily: 'Indie Flower', color: '#ffffff' });
-        let menuStar1 = this.add.image(-50, -50, 'star')
+            .setStyle({ fontSize: `48px`, fontFamily: 'Indie Flower', color: '#ffffff' });
+        let menuStar1 = this.add.image(-40, -50, 'star')
             .setOrigin(0.5)
-            .setScale(0.05)
+            .setScale(0.07)
         let menuStar2 = this.add.image(0, -50, 'star')
             .setOrigin(0.5)
-            .setScale(0.05);
-        let menuStar3 = this.add.image(50, -50, 'star')
+            .setScale(0.07);
+        let menuStar3 = this.add.image(40, -50, 'star')
             .setOrigin(0.5)
-            .setScale(0.05)
+            .setScale(0.07)
 
         // creates the play button; the ball will drop once it is pressed once
         let playTextOn = false;
@@ -189,7 +189,7 @@ class Level3 extends Phaser.Scene {
     {
         if (stars==1 && starsOne==false) {
             starsOne=true;
-            let menuStar1 = this.add.image(150, h*0.5-350, 'star')
+            let menuStar1 = this.add.image(160, h*0.5-350, 'star')
                 .setOrigin(0.5)
                 .setScale(0.05)
                 .setTint(0x4dd0e1);  
@@ -205,7 +205,7 @@ class Level3 extends Phaser.Scene {
 
         if (stars==3 && resultStart==false) {
             // add a star to the "score" once the star is hit by the ball
-            let menuStar3 = this.add.image(250, h*0.5-350, 'star')
+            let menuStar3 = this.add.image(240, h*0.5-350, 'star')
                 .setOrigin(0.5)
                 .setScale(0.05)
                 .setTint(0x4dd0e1);  
@@ -240,9 +240,9 @@ class Level3 extends Phaser.Scene {
                 .on('pointerdown', () => {
                     this.scene.start('loading3');
                 });
-            let scoreIcon1 = this.add.image(-200, -60, 'star').setOrigin(0.5).setScale(0.15);
+            let scoreIcon1 = this.add.image(-150, -60, 'star').setOrigin(0.5).setScale(0.15);
             let scoreIcon2 = this.add.image(0, -60, 'star').setOrigin(0.5).setScale(0.15);
-            let scoreIcon3 = this.add.image(200, -60, 'star').setOrigin(0.5).setScale(0.15);
+            let scoreIcon3 = this.add.image(150, -60, 'star').setOrigin(0.5).setScale(0.15);
 
             // add option to move to next level
             let nextHover = false;

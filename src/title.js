@@ -12,6 +12,9 @@ class Title extends Phaser.Scene {
         this.load.image('star', './assets/star.png');
         this.load.image('circle', './assets/circle.png');
         this.load.image('logo', './assets/logo.png');
+        this.load.image('titleimg', './assets/titlescreen.png');
+        this.load.image('titlename', './assets/title.png');
+        this.load.image('bg', './assets/bg.png');
     }
 
     create()
@@ -41,23 +44,30 @@ class Title extends Phaser.Scene {
         })
 
         this.time.delayedCall(4000, () => {
-            this.titleText = this.add.text(w*0.5, h*0.65)
-                .setOrigin(0.5)
-                .setText("Wahoo!")
-                .setStyle({ fontSize: `172px`, fontFamily: 'Indie Flower', color: '#ffffff' })
-                .setAlpha(0);
-
+            this.titleimg = this.add.image(0, 0, 'titleimg').setOrigin(0,0).setAlpha(0);
             this.add.tween({
-                targets: this.titleText,
+                targets: this.titleimg,
                 alpha: {from: 0, to: 1},
-                duration: 1000
+                duration: 500
             });
+
+            this.time.delayedCall(1000, () => {
+                this.titleText = this.add.image(w*0.5, h*0.65, 'titlename')
+                    .setOrigin(0.5)
+                    .setAlpha(0)
+
+                this.add.tween({
+                    targets: this.titleText,
+                    alpha: {from: 0, to: 1},
+                    duration: 1000
+                });
+            })
         })
 
         
 
         this.time.delayedCall(5000, () => {
-            this.startText = this.add.text(w*0.5, h*0.65+100, "Click to move to the next scene.")
+            this.startText = this.add.text(w*0.5, h*0.75+100, "Click to move to the next scene.")
                 .setOrigin(0.5)    
                 .setStyle({ fontSize: `24px`, fontFamily: 'Indie Flower', color: '#ffffff' })
                 .setAlpha(0);

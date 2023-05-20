@@ -23,7 +23,7 @@ class Level1 extends Phaser.Scene {
         // setting the world bounds; omits the left side, where the menu is
         this.matter.world.setBounds(300, 0, w-300, h, 32, true, true, false, true);
 
-        this.add.rectangle(0, 0, w, h*0.75, 0x303030).setOrigin(0,0);
+        this.add.image(0, 0, 'bg').setOrigin(0,0).setAlpha(0.75);
 
         // creates "restart" button in the top-right corner
         let restartTextOn = false;
@@ -130,10 +130,10 @@ class Level1 extends Phaser.Scene {
         let menuText = this.add.text(0, -100)
             .setOrigin(0.5)
             .setText("Score:")
-            .setStyle({ fontSize: `24px`, fontFamily: 'Indie Flower', color: '#ffffff' });
+            .setStyle({ fontSize: `48px`, fontFamily: 'Indie Flower', color: '#ffffff' });
         let menuStar = this.add.image(0, -50, 'star')
             .setOrigin(0.5)
-            .setScale(0.05);    
+            .setScale(0.07);    
 
         // creates the play button; the ball will drop once it is pressed once
         let playTextOn = false;
@@ -168,7 +168,20 @@ class Level1 extends Phaser.Scene {
         menu.add(menuText);
         menu.add(menuStar);
         menu.add(playText);
-        menu.add(playButton);        
+        menu.add(playButton);
+        
+        let playInstruction = this.add.text(450, h*0.5-300).setOrigin(0.5)
+            .setText("Press play once you’re finished drawing.")
+            .setWordWrapWidth(150)
+            .setStyle({ fontSize: `24px`, fontFamily: 'Indie Flower', color: '#ffffff' });
+        let playArrow = this.add.image(325, h*0.5-275, 'arrow').setOrigin(0.5).setScale(0.3);
+        playArrow.angle = 50;
+
+        let drawInstruction = this.add.text(850, 300).setOrigin(0.5)
+            .setText("Draw a line to guide the ball to the star.")
+            .setWordWrapWidth(150)
+            .setStyle({ fontSize: `24px`, fontFamily: 'Indie Flower', color: '#ffffff' });
+        let drawArrow = this.add.image(725, 300, 'arrow').setOrigin(0.5).setScale(0.3);
     }
 
     update() 
