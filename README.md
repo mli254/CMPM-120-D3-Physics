@@ -12,11 +12,12 @@ Play the game at [this link](https://mli254.github.io/CMPM-120-D3-Physics/).
 - **The player’s goal can only be achieved indirectly (by allowing the physics engine to move key objects into position/contact).**
     - The player can't move the ball directly towards the stars, and must draw lines in order to influence its movement.
 - **3+ physics-based gameplay scenes (possibly implemented with a single Phaser Scene subclass).**
-    - Level 1: one ball, one star
-    - Level 2: one ball, two stars
-    - Level 3: one ball, three stars
+    - Level 1: one ball, one star; the player can draw a direct path
+    - Level 2: one ball, two stars; the player can draw a direct path to both stars
+    - Level 3: one ball, three stars; the player will need to bounce the ball to hit all three stars
 - **Other scenes are used to separate and contextualize the gameplay scenes**
-    - 3 summary pages
+    - 3 summary pages; each contains the number of stars gained, as well as the total "score" (1/1, 2/2, or 3/3)
+        - each summary page also gives the option to restart the level, or to advance to the next; in the case of the third, the "next" goes back to the title screen
 
 ### Assets
 - The title screen, logo, moon asset, and backgrounds were created by me in Clip Studio Paint
